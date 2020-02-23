@@ -1,2 +1,2 @@
 # Wallpaper-Grabber
-Just a python script to grab wallpapers from Unsplash and set it as Desktop Wallpaper
+A python script that grabs images from Unsplash and sets it as wallpaper on windows machines
