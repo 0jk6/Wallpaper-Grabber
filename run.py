@@ -1,4 +1,6 @@
+import os
 import requests, ctypes
+from sys import platform
 from datetime import datetime
 
 #creating names for images with date and time
@@ -29,19 +31,29 @@ class GetImage():
         except:
             print("* Something went wrong")
     
-    #this will set new wallpaper and the following code only works on windows
-    def setNewWallpaper(self):
+    #set wallpaper on windows
+    def setNewWallpaperWin(self):
         print("* Setting desktop wallpaper")
         ctypes.windll.user32.SystemParametersInfoW(20, 0, self.export_name , 0)
         print("* Wallpaper set successfully")
 
+    #set wallpaper on linux, tested it on Gnome desktop
+    def setNewWallpaperGnome(self):
+    	print("* Setting desktop wallpaper")
+    	cmd = "/usr/bin/gsettings set org.gnome.desktop.background picture-uri " + os.path.abspath(self.export_name)
+    	os.system(cmd)
+
 def main():
-    #defining img object
-    
+    #defining img object    
     img=GetImage(export_name,url)
     img.grabNewImage()
-    img.setNewWallpaper()
+
+    if platform == 'linux':
+    	img.setNewWallpaperGnome()
+
+    if platform == 'win32':
+    	img.setNewWallpaperWin()
 
 #running the main() script
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
