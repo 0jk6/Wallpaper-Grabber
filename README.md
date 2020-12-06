@@ -12,5 +12,5 @@ pip3 install requests
 python3 run.py
 ```
 
-Tested this on Ubuntu 18.04 LTS Gnome desktop and it worked fine. I don't know whether it works on other desktop managers.
+Tested this on Ubuntu 18.04 LTS Gnome desktop and Windows 7, I have no idea whether it works or not in Windows 10. I also don't know whether it works on other desktop managers for linux.
 If you know how to set wallpaper on other Linux Distros, feel free to create a Pull Request.
